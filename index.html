@@ -66,7 +66,7 @@
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSftNvvdjRyBA1dg6saJ4mfQovzxyBrA6sRerw57Ls9AmQOBWw/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </section> -->
 <!--     <form action="https://formsubmit.co/f7b5cd0b9fc4911f0f3aa79166948e03" method="POST" id="rsvp-form" onsubmit="return validateForm()" /> -->
-    <form action="https://submit-form.com/tH2XaKV9O">
+    <form id="rsvp-form">
 
         <label for="name">Name *</label>
         <input type="text" id="name" name="name" required>
@@ -89,19 +89,18 @@
         <br />
         <div id="response-message"></div>
       </form>
-      
-<script>
+ <script>
   const form = document.getElementById('rsvp-form');
   const responseMessage = document.getElementById('response-message');
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // ❌ STOP default redirect
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const res = await fetch("https://submit-form.com/YOUR_FORM_ID_HERE", {
+      const res = await fetch("https://submit-form.com/tH2XaKV9O", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -111,16 +110,17 @@
       });
 
       if (res.ok) {
-        responseMessage.textContent = "🎉 RSVP submitted! Gracias!";
+        responseMessage.textContent = "🎉 RSVP submitted successfully!";
         form.reset();
       } else {
-        responseMessage.textContent = "😢 Something went wrong. Try again.";
+        responseMessage.textContent = "❌ Error submitting RSVP.";
       }
     } catch (err) {
-      responseMessage.textContent = "⚠️ Error submitting form.";
+      responseMessage.textContent = "⚠️ Network error. Try again later.";
     }
   });
 </script>
+
   </div>
 
   <button id="fireworks-btn">💥 Celebrate!</button>
