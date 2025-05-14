@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sacha's Birthday Party</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style type="text/css">* {cursor: url(https://cur.cursors-4u.net/food/foo-1/foo39.cur), auto !important;}</style>
+
+
+  <div class="container">
+    <h1>🎉 It's Sacha's Birthday! 🎉</h1>
+    <h1 id="type-text"></h1>
+<script>
+  const text = "🎂 Welcome to the Party! 🎂";
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      document.getElementById("type-text").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 100);
+    }
+  }
+  type();
+</script>
+    <h2>On June 10th! 🥳</h2>
+    <img src="./canobie_logo.png" alt="Canobie Lake Logo"/>
+
+    <section>
+      <h3>Who's Coming?</h3>
+      <h4>✅ Yes!</h4>
+      <ul><li>Sacha</li></ul>
+
+      <h4>🕐 No reply yet 😅</h4>
+      <ul>
+        <li>Michael Rosecan</li>
+        <li>Lukas Koehler</li>
+        <li>Lukas Petrosky</li>
+        <li>Alex Xiong</li>
+        <li>Gavin Tarnowski</li>
+        <li>Will Staley</li>
+        <li>Henry Tortola</li>
+        <li>Nicholas Wulin</li>
+        <li>Jasper Sage</li>
+        <li>Quinten Clairmont</li>
+        <li>Jay Chhabra</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>📍 Where Should I Go?</h3>
+      <ul>
+        <li>Drop off at <a href="https://www.google.com/maps/place/28+Forest+Rd,+Acton,+MA+01720" target="_blank">Sacha's House</a></li>
+        <li>Then we're heading to 🎢 <strong>Canobie Lake Park!</strong></li>
+      </ul>
+    </section>
+
+    <!-- <section>
+      <h3>📝 RSVP Below!</h3>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSftNvvdjRyBA1dg6saJ4mfQovzxyBrA6sRerw57Ls9AmQOBWw/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </section> -->
+    <form action="https://formsubmit.co/sachaavogel.sav@gmail.com" method="POST" id="rsvp-form" onsubmit="return validateForm()" />
+
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required>
+      
+        <label for="attending">Will attend? *</label>
+        <select id="attending" name="attending" required>
+          <option value="">--Select--</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments" rows="4" placeholder="Anything you want to say?"></textarea>
+      
+        <button type="submit" id="submit-btn">Submit</button>
+        <br />
+        <label>Note that this website will <strong>not</strong> update automatically.</label>
+        <div id="response-message"></div>
+      </form>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const form = document.getElementById('rsvp-form');
+          const name = document.getElementById('name');
+          const attending = document.getElementById('attending');
+          const submitBtn = document.getElementById('submit-btn');
+          const yaySound = document.getElementById('yay-sound');
+          const responseDiv = document.getElementById('response-message');
+      
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log("📝 Submit triggered");
+      
+            let hasError = false;
+      
+            // Reset any previous error styling
+            [name, attending].forEach(el => el.classList.remove('error'));
+      
+            // Basic validation
+            if (!name.value.trim()) {
+              name.classList.add('error');
+              hasError = true;
+            }
+      
+            if (!attending.value.trim()) {
+              attending.classList.add('error');
+              hasError = true;
+            }
+      
+            if (hasError) {
+              submitBtn.classList.add('shake');
+              setTimeout(() => submitBtn.classList.remove('shake'), 1000);
+              alert('❗ Please fill out all required fields!');
+              return;
+            }
+      
+            const formData = new FormData(form);
+      
+            try {
+              await yaySound.play();
+      
+              const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                  'Accept': 'application/json'
+                }
+              });
+      
+              if (response.ok) {
+                responseDiv.textContent = "🎉 RSVP sent successfully!";
+                console.log("Done")
+                form.reset();
+              } else {
+                responseDiv.textContent = "⚠️ Something went wrong. Try again later.";
+              }
+            } catch (err) {
+              console.error("❌ Error:", err);
+              responseDiv.textContent = "❌ Submission failed!";
+            }
+          });
+        });
+      </script>
+      
+      
+  </div>
+
+  <button id="fireworks-btn">💥 Celebrate!</button>
+  <canvas id="fireworks-canvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.min.js"> </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      const canvas = document.getElementById('fireworks-canvas');
+      const btn = document.getElementById('fireworks-btn');
+
+      console.log("Fireworks object:", Fireworks);
+      if (btn) {
+        function handleClick() {
+          const fireworks = new Fireworks.Fireworks(canvas, {
+            autoresize: true,
+            opacity: 0.5,
+            acceleration: 1.02,
+            friction: 0.98,
+            gravity: 1.5,
+            particles: 90,
+            trace: 3,
+            explosion: 5,
+            intensity: 30,
+            flickering: 50,
+            lineStyle: 'round',
+            hue: { min: 0, max: 360 },
+            delay: { min: 30, max: 60 },
+            brightness: { min: 50, max: 80 },
+            decay: { min: 0.015, max: 0.03 },
+          });
+
+          fireworks.start();
+          setTimeout(() => fireworks.stop(), 5000);
+        }
+
+        btn.addEventListener('click', handleClick); // 👈 Using a named function
+      } else {
+        alert('Error: Fireworks button element not found!');
+      }
+    });
+  </script>
+
+<style>
+    #music-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #888;
+    }
+  
+    #music-controls button {
+      font-size: 16px;
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: limegreen;
+      color: white;
+    }
+  
+    #music-controls button:hover {
+      background-color: #28a745;
+    }
+  </style>
+  
+  <div id="music-controls">
+    <button onclick="document.getElementById('party-audio').play()">▶️ Let's Sing!</button>
+    <button onclick="document.getElementById('party-audio').pause()">⏸ Let's Pause...</button>
+
+  </div>
+  
+  <audio id="party-audio" src="happy-birthday.mp3" loop></audio>
+
+<audio id="yay-sound" src="tada.mp3" preload="auto"></audio>
+<script>
+  document.getElementById('submit-btn').addEventListener('click', () => {
+    document.getElementById('yay-sound').play();
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+  document.getElementById('rsvp-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Remove if you handle actual form sending
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  });
+</script>
+
+</body>
+</html>
