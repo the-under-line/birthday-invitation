@@ -187,7 +187,39 @@ a:hover {
   .shake {
     animation: shake 0.4s ease;
   }
-.submit-container {
+#submit-btn {
+  display: block;
+  margin: 1em auto;
+  padding: 0.6em 1.5em;
+  font-size: 1.2em;
+  font-family: 'Pacifico', cursive;
+  color: white;
+  background: linear-gradient(45deg, #00c853, #1de9b6);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #1de9b6;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#submit-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #69f0ae;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px #1de9b6;
+  }
+  50% {
+    box-shadow: 0 0 20px #00c853;
+  }
+  100% {
+    box-shadow: 0 0 10px #1de9b6;
+  }
+}
+/* .submit-container {
   display: flex;
   justify-content: center;
   margin-top: 1em;
@@ -207,7 +239,7 @@ a:hover {
   #submit-btn:hover {
     background-color: green;
     transform: scale(1.05);
-  }
+  } */
   
   /* Required field indicator */
   .required {
