@@ -1,0 +1,216 @@
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #c1fbff, #ffe0f7);
+    font-family: 'Roboto Mono', monospace;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: #3cc96e;
+    margin-top: 1rem;
+    animation: pulse 1s infinite;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+img {
+    display: block;
+    margin: 2rem auto;
+    width: 60%;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+h3 {
+    font-family: 'Pacifico', cursive;
+    color: #3cc96e;
+    font-size: 1.75rem;
+    margin-top: 2rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: #444;
+}
+
+ul {
+    list-style-type: "🎈 ";
+    padding-left: 1.5rem;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.rsvp {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #fff8fc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+#fireworks-btn {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    background-color: #3cc96e;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Roboto Mono', monospace;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#fireworks-btn:hover {
+    background-color: #2db25d;
+}
+
+#fireworks-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+}
+/* Form container */
+/* .rsvp {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  input, select, textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  
+  button:hover {
+    background-color: #27ae60;
+  } */
+  form {
+    margin: 30px auto;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #ffffffcc;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .error {
+    border-color: red;
+    box-shadow: 0 0 8px red;
+  }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+
+  .shake {
+    animation: shake 0.4s ease;
+  }
+
+  #submit-btn {
+    background-color: limegreen;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  #submit-btn:hover {
+    background-color: green;
+  }
+  
+  /* Required field indicator */
+  .required {
+    color: red;
+  }
+  
+  /* Styling the section */
+  .rsvp h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
