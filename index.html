@@ -11,6 +11,10 @@
 
 </head>
 <body>
+  <div id="date-banner" style="background-color: #ffeb3b; color: #000; padding: 15px; text-align: center; font-weight: bold; font-family: sans-serif; font-size: 18px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); position: relative;">
+  📅 The date was changed to <span style="color: red;">June 8th</span>! Please re-RSVP if you previously RSVP’d!
+  <button onclick="document.getElementById('date-banner').style.display='none'" style="position: absolute; right: 10px; top: 10px; background: none; border: none; font-size: 20px; cursor: pointer;">❌</button>
+</div>
     <style type="text/css">* {cursor: url(https://cur.cursors-4u.net/food/foo-1/foo39.cur), auto !important;}</style>
 
 
@@ -18,7 +22,7 @@
     <h1>🎉 It's Sacha's Birthday! 🎉</h1>
     <h2 id="type-text"></h1>
 <script>
-  const text = "🎂 Welcome to the Party! 🎂\nNote: The party has been moved to June 8th! Please re-RSVP if you previously RSVP'd.";
+  const text = "🎂 Welcome to the Party! 🎂<br />Note: The party has been moved to June 8th! Please re-RSVP if you previously RSVP'd.";
   let i = 0;
   function type() {
     if (i < text.length) {
