@@ -11,10 +11,26 @@
 
 </head>
 <body>
-<div id="date-banner" style="background-color: #ffeb3b; color: #000; padding: 15px; text-align: center; font-weight: bold; font-family: sans-serif; font-size: 18px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
-  📅 The date was changed to <span style="color: red;">June 8th</span>! Please re-RSVP if you previously RSVP’d 🙏
-  <button onclick="document.getElementById('date-banner').style.display='none'" style="position: absolute; right: 10px; top: 10px; background: none; border: none; font-size: 20px; cursor: pointer;">❌</button>
+<div id="banner-wrapper">
+  <div id="top-banner">
+    <span id="banner-text">📅 The date was changed to <strong>June 8th</strong>! Please re-RSVP if you previously RSVP'd.</span>
+    <button id="close-banner">✖</button>
+  </div>
 </div>
+<script>
+  document.getElementById('close-banner').addEventListener('click', function () {
+    const banner = document.getElementById('banner-wrapper');
+    banner.style.display = 'none';
+
+    // Pull the H1 back up after banner disappears
+    document.querySelector('h1').style.marginTop = '20px';
+  });
+
+  // Push h1 down initially to make space for banner
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('h1').style.marginTop = '70px';
+  });
+</script>
     <style type="text/css">* {cursor: url(https://cur.cursors-4u.net/food/foo-1/foo39.cur), auto !important;}</style>
 
 
