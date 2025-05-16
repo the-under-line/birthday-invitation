@@ -1,4 +1,32 @@
+#top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffe066;
+  color: #222;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
 
+#banner-text {
+  flex: 1;
+  font-size: 1rem;
+}
+
+#close-banner {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
 body {
     margin: 0;
     background: linear-gradient(135deg, #c1fbff, #ffe0f7);
