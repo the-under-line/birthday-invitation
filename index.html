@@ -24,18 +24,29 @@
   <h1>🎉 It's Sacha's Birthday! 🎉</h1>
   <!-- etc -->
 </div>
-    <h2 id="type-text"></h1>
+    <h2 id="type-text"></h2>
 <script>
-  const text = "🎂 Welcome to the Party! 🎂";
+  const messages = [
+    "🎂Welcome to the Party!🎂",
+    "🎂Let's Get this Party Started!🎂",
+    "🎂Can't wait to see you all!🎂",
+    "🎂Woop woop!🎂",
+    "🎂Time to get excited!!🎂",
+    "🎂R! S! V! Party!!!🎂",
+  ];
+
+  const text = messages[Math.floor(Math.random() * messages.length)];
   let i = 0;
+
   function type() {
     if (i < text.length) {
       document.getElementById("type-text").innerHTML += text.charAt(i);
       i++;
-      setTimeout(type, 100);
+      setTimeout(type, 100); // typing speed
     }
   }
-  type();
+
+  document.addEventListener("DOMContentLoaded", type);
 </script>
 
     <img src="./canobie_logo.png" alt="Canobie Lake Logo"/>
